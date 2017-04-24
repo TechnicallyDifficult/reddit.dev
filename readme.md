@@ -1,2 +1,2 @@
 # reddit.dev
-## totally not a reddit clone!
+### Totally not just a reddit clone!
