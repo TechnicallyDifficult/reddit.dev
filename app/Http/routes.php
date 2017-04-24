@@ -11,6 +11,14 @@
 |
 */
 
+if (substr($_SERVER['REQUEST_URI'], -1) !== '/') {
+	header('Location: ' . $_SERVER['REQUEST_URI'] . '/');
+}
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/helloworld', function () {
+	return 'hello world';
 });
