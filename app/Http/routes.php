@@ -43,7 +43,10 @@ Route::get('/add/{a?}/{b?}/', function ($a = 0, $b = 0)
 	return "$a $o " . abs($b) . ' = ' . ($a + $b);
 });
 
-Route::get('/rolldice/', function () {
-	$roll = mt_rand(1, 6);
-	return view('roll_dice', ['roll' => $roll]);
+Route::get('/rolldice/{guess?}', function ($guess = NULL) {
+	$data['roll'] = mt_rand(1, 6);
+
+	$data['guess'] = $guess;
+
+	return view('roll_dice', $data);
 });
