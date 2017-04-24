@@ -11,14 +11,29 @@
 |
 */
 
-if (substr($_SERVER['REQUEST_URI'], -1) !== '/') {
-	header('Location: ' . $_SERVER['REQUEST_URI'] . '/');
+// first things first, let's make sure that url is all pretty
+if (isset($_SERVER['REQUEST_URI']) && substr($_SERVER['REQUEST_URI'], -1) !== '/') {
+    header("Location: {$_SERVER['REQUEST_URI']}/");
+    die;
 }
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/helloworld', function () {
-	return 'hello world';
+Route::get('/helloworld/', function () {
+    return 'hello world';
+});
+
+Route::get('/uppercase/{word?}/', function ($word = 'uppercase') {
+    return strtoupper($word);
+});
+
+Route::get('/lowercase/{word?}/', function($word = 'LOWERCASE') {
+    return strtolower($word);
+});
+
+Route::get('/add/{a?}/{b?}', function($a = 0, $b = 0) {
+    $o = $b > 0 ? '+' : '-';
+    return "$a $o " . abs($b) . ' = ' . ($a + $b);
 });
