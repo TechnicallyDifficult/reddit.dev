@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('content')
-	{{ $word }} --&gt; {{ $uWord }}
+	{{ $x }} {{ $o }} {{ abs($y) }} = {{ $x + $y }}
 @stop
