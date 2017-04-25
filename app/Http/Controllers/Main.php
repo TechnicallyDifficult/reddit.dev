@@ -29,4 +29,11 @@ class Main extends Controller {
 
 		return view('roll_dice', $data);
 	}
+
+	public function increment($number = 0)
+	{
+		$data['number'] = $number;
+
+		return view('increment', $data);
+	}
 }
