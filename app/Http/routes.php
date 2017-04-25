@@ -17,38 +17,14 @@ if (isset($_SERVER['REQUEST_URI']) && substr($_SERVER['REQUEST_URI'], -1) !== '/
 	die;
 }
 
-Route::get('/', function ()
-{
-	return view('welcome');
-});
+Route::get('/', 'Main@root');
 
-Route::get('/helloworld/', function ()
-{
-	return 'hello world';
-});
+Route::get('/helloworld/', 'Main@welcome');
 
-Route::get('/uppercase/{word?}/', function ($word = 'uppercase')
-{
-	$data['word'] = $word;
-	$data['uWord'] = strtoupper($word);
-	return view('uppercase', $data);
-});
+Route::get('/uppercase/{word?}/', 'ConvertCase@uppercase');
 
-Route::get('/lowercase/{word?}/', function ($word = 'LOWERCASE')
-{
-	return strtolower($word);
-});
+Route::get('/lowercase/{word?}/', 'ConvertCase@lowercase');
 
-Route::get('/add/{a?}/{b?}/', function ($a = 0, $b = 0)
-{
-	$o = $b < 0 ? '-' : '+';
-	return "$a $o " . abs($b) . ' = ' . ($a + $b);
-});
+Route::get('/add/{x?}/{y?}/', 'Main@add');
 
-Route::get('/rolldice/{guess?}', function ($guess = NULL) {
-	$data['roll'] = mt_rand(1, 6);
-
-	$data['guess'] = $guess;
-
-	return view('roll_dice', $data);
-});
+Route::get('/rolldice/{guess?}/', 'Main@rolldice');
