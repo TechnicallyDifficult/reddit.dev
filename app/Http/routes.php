@@ -29,7 +29,9 @@ Route::get('/helloworld/', function ()
 
 Route::get('/uppercase/{word?}/', function ($word = 'uppercase')
 {
-	return strtoupper($word);
+	$data['word'] = $word;
+	$data['uWord'] = strtoupper($word);
+	return view('uppercase', $data);
 });
 
 Route::get('/lowercase/{word?}/', function ($word = 'LOWERCASE')
