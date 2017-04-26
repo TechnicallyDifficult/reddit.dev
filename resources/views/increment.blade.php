@@ -1,7 +1,7 @@
-@extends('layouts.master')
+@extends('layouts.common')
 
 @section('content')
-	<a href="{{ action('Main@increment', [$number - 1]) }}">-</a>
-	{{ $number }}
-	<a href="{{ action('Main@increment', [$number + 1]) }}">+</a>
+    <a href="{{ action('Main@increment', [$number - 1]) }}">-</a>
+    {{ $number }}
+    <a href="{{ action('Main@increment', [$number + 1]) }}">+</a>
 @stop

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.common')
 
 @section('content')
     {{ $x }} {{ $o }} {{ abs($y) }} = {{ $x + $y }}
