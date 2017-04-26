@@ -3,6 +3,20 @@
 namespace App\Http\Controllers;
 
 class Main extends Controller {
+    // if you want to get all local variables within the current scope, you **MUST** pass this function the get_defined_vars() function
+    protected function getLocalVars($vars)
+    {
+        $ignore = ['GLOBALS', '_SERVER', '_GET', '_POST', '_FILES', '_REQUEST', '_SESSION', '_ENV', '_COOKIE', 'php_errormsg', 'HTTP_RAW_POST_DATA', 'http_response_header', 'argc', 'argv'];
+
+        foreach ($ignore as $name) {
+            if (isset($vars[$name])) {
+                unset($vars[$name]);
+            }
+        }
+
+        return $vars;
+    }
+
     public function root()
     {
         return view('welcome');
@@ -15,51 +29,44 @@ class Main extends Controller {
 
     public function add($x = 0, $y = 0)
     {
-        $data['pageTitle'] = 'Add';
-        
-        $data['x'] = $x;
-        $data['o'] = $y < 0 ? '-' : '+';
-        $data['y'] = $y;
+        $pageTitle = 'Add';
 
-        return view('add', $data);
+        $o = $y < 0 ? '-' : '+';
+
+        return view('add', $this->getLocalVars(get_defined_vars()));
     }
 
     public function rolldice($guess = NULL)
     {
-        $data['pageTitle'] = 'Roll';
+        $pageTitle = 'Roll';
 
-        $data['roll'] = mt_rand(1, 6);
-        $data['guess'] = $guess;
+        $roll = mt_rand(1, 6);
 
-        return view('roll_dice', $data);
+        return view('roll_dice', $this->getLocalVars(get_defined_vars()));
     }
 
     public function increment($number = 0)
     {
-        $data['pageTitle'] = "$number | Increment";
+        $pageTitle = "$number | Increment";
 
-        $data['number'] = $number;
-
-        return view('increment', $data);
+        return view('increment', $this->getLocalVars(get_defined_vars()));
     }
 
     public function uppercase($word = 'uppercase')
     {
-        $data['pageTitle'] = 'UPPERCASE';
+        $pageTitle = 'UPPERCASE';
 
-        $data['word'] = $word;
-        $data['newWord'] = strtoupper($word);
+        $newWord = strtoupper($word);
 
-        return view('convert_case', $data);
+        return view('convert_case', $this->getLocalVars(get_defined_vars()));
     }
 
     public function lowercase($word = 'LOWERCASE')
     {
-        $data['pageTitle'] = 'lowercase';
+        $pageTitle = 'lowercase';
         
-        $data['word'] = $word;
-        $data['newWord'] = strtolower($word);
+        $newWord = strtolower($word);
 
-        return view('convert_case', $data);
+        return view('convert_case', $this->getLocalVars(get_defined_vars()));
     }
 }
