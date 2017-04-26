@@ -1,0 +1,94 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"name": "/",
+			"folder_exclude_patterns":
+			[
+				// "app",
+					"app/Console",
+						"app/Console/Commands",
+					"app/Events",
+					"app/Exceptions",
+					// "app/Http",
+						"app/Http/Middleware",
+					"app/Jobs",
+					"app/Listeners",
+					"app/Policies",
+					"app/Providers",
+				"bootstrap",
+					"bootstrap/cache",
+				"config",
+				// "database",
+					"database/factories",
+					"database/seeds",
+				"storage",
+					"storage/app",
+					"storage/framework",
+						"storage/framework/cache",
+						"storage/framework/sessions",
+						"storage/framework/views",
+					"storage/logs",
+				"tests",
+				"vendor",
+				// "resources",
+					"resources/assets",
+						"resources/assets/sass",
+					"resources/lang",
+						"resources/lang/en",
+					// "resources/views",
+						"resources/views/errors",
+			],
+			"file_exclude_patterns":
+			[
+				".gitattributes",
+				"artisan",
+				"composer.*",
+				"gulpfile.js",
+				"package.json",
+				"phpspec.yml",
+				"phpunit.xml",
+				"server.php",
+			],
+		},
+		{
+			"path": "app/Http/Controllers",
+			"name": "Page Controllers",
+			"folder_exclude_patterns":
+			[
+				"Auth",
+			],
+		},
+		{
+			"path": "database/migrations",
+			"name": "DB Migrations",
+			"file_include_patterns":
+			[
+				// "*_create_*_table.php",
+
+				// "*_users_*.php",
+				// "*_password_resets_*.php",
+				"*_posts_*.php",
+				"*_comments_*.php",
+				"*_votes_*.php",
+					"*_post_votes_*.php",
+					"*_comment_votes_*.php",
+			],
+		},
+		{
+			"path": "resources/views",
+			"folder_exclude_patterns":
+			[
+				// "errors",
+				// "layouts",
+				// "partials",
+				"vendor",
+			],
+		},
+	],
+	"settings":
+	{
+		"translate_tabs_to_spaces": "true",
+	}
+}
