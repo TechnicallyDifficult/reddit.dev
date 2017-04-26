@@ -4,15 +4,18 @@
 		{
 			"path": ".",
 			"name": "/",
-			"folder_exclude_patterns":
+			"folder_include_patterns":
 			[
-				// "app",
+				"app",
 					"app/Console",
 						"app/Console/Commands",
 					"app/Events",
 					"app/Exceptions",
-					// "app/Http",
+					"app/Http",
+						"app/Http/Controllers",
+							"app/Http/Controllers/Auth",
 						"app/Http/Middleware",
+						"app/Http/Requests",
 					"app/Jobs",
 					"app/Listeners",
 					"app/Policies",
@@ -20,9 +23,23 @@
 				"bootstrap",
 					"bootstrap/cache",
 				"config",
-				// "database",
+				"database",
 					"database/factories",
+					"database/migrations",
 					"database/seeds",
+				"public",
+					"css",
+				"resources",
+					"resources/assets",
+						"resources/assets/sass",
+					"resources/lang",
+						"resources/lang/en",
+					"resources/views",
+						"resources/views/errors",
+						"resources/views/layouts",
+						"resources/views/partials",
+						"resources/views/posts",
+						"resources/views/vendor",
 				"storage",
 					"storage/app",
 					"storage/framework",
@@ -31,14 +48,8 @@
 						"storage/framework/views",
 					"storage/logs",
 				"tests",
-				"vendor",
-				// "resources",
-					"resources/assets",
-						"resources/assets/sass",
-					"resources/lang",
-						"resources/lang/en",
-					// "resources/views",
-						"resources/views/errors",
+				// "vendor"
+					// no need to mess with anything in here
 			],
 			"file_exclude_patterns":
 			[
@@ -54,8 +65,7 @@
 		},
 		{
 			"path": "app/Http/Controllers",
-			"name": "Page Controllers",
-			"folder_exclude_patterns":
+			"folder_include_patterns":
 			[
 				"Auth",
 			],
@@ -69,26 +79,26 @@
 
 				// "*_users_*.php",
 				// "*_password_resets_*.php",
-				"*_posts_*.php",
-				"*_comments_*.php",
-				"*_votes_*.php",
-					"*_post_votes_*.php",
-					"*_comment_votes_*.php",
+				// "*_posts_*.php",
+				// "*_comments_*.php",
+				// "*_votes_*.php",
+					// "*_post_votes_*.php",
+					// "*_comment_votes_*.php",
 			],
 		},
 		{
 			"path": "resources/views",
-			"folder_exclude_patterns":
+			"folder_include_patterns":
 			[
-				// "errors",
-				// "layouts",
-				// "partials",
+				"errors",
+				"layouts",
+				"partials",
+				"posts",
 				"vendor",
 			],
 		},
-	],
-	"settings":
-	{
-		"translate_tabs_to_spaces": "true",
-	}
+		{
+			"path": "public"
+		}
+	]
 }
