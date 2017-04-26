@@ -18,6 +18,8 @@ class CreatePostsTable extends Migration
             $table->string('url', 255)->nullable();
             $table->text('content');
             $table->integer('user_id')->unsigned()->references('id')->on('users');
+            $table->smallInteger('upvotes')->unsigned()->default('0');
+            $table->smallInteger('downvotes')->unsigned()->default('0');
             $table->timestamps();
         });
     }
