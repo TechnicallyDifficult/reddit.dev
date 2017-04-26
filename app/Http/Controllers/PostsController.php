@@ -17,6 +17,7 @@ class PostsController extends Controller
     public function index()
     {
         // list all posts
+        return 'all posts';
     }
 
     /**
@@ -27,6 +28,7 @@ class PostsController extends Controller
     public function create()
     {
         // view "new post" page (only if logged in)
+        return 'create post';
     }
 
     /**
@@ -38,6 +40,7 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         // save post to database
+        return 'store post';
     }
 
     /**
@@ -49,6 +52,7 @@ class PostsController extends Controller
     public function show($id)
     {
         // view a particular post's page
+        return 'show post';
     }
 
     /**
@@ -60,6 +64,7 @@ class PostsController extends Controller
     public function edit($id)
     {
         // view "edit post" page (only if logged in as admin or user who created initially)
+        return 'edit post';
     }
 
     /**
@@ -72,6 +77,7 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
         // update post's entry in database
+        return 'update post';
     }
 
     /**
@@ -83,5 +89,6 @@ class PostsController extends Controller
     public function destroy($id)
     {
         // delete a post (only if logged in as admin or user who created post)
+        return 'destroy post';
     }
 }

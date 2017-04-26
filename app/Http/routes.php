@@ -13,8 +13,8 @@
 
 // first things first, let's make sure that url is all pretty
 if (isset($_SERVER['REQUEST_URI']) && substr($_SERVER['REQUEST_URI'], -1) !== '/') {
-	header("Location: {$_SERVER['REQUEST_URI']}/");
-	die;
+    header("Location: {$_SERVER['REQUEST_URI']}/");
+    die;
 }
 
 Route::get('/', 'Main@root');

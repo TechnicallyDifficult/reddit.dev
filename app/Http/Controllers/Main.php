@@ -3,37 +3,37 @@
 namespace App\Http\Controllers;
 
 class Main extends Controller {
-	public function root()
-	{
-		return view('welcome');
-	}
+    public function root()
+    {
+        return view('welcome');
+    }
 
-	public function helloworld()
-	{
-		return 'hello world';
-	}
+    public function helloworld()
+    {
+        return 'hello world';
+    }
 
-	public function add($x = 0, $y = 0)
-	{
-		$data['x'] = $x;
-		$data['o'] = $y < 0 ? '-' : '+';
-		$data['y'] = $y;
+    public function add($x = 0, $y = 0)
+    {
+        $data['x'] = $x;
+        $data['o'] = $y < 0 ? '-' : '+';
+        $data['y'] = $y;
 
-		return view('add', $data);
-	}
+        return view('add', $data);
+    }
 
-	public function rolldice($guess = NULL) {
-		$data['roll'] = mt_rand(1, 6);
+    public function rolldice($guess = NULL) {
+        $data['roll'] = mt_rand(1, 6);
 
-		$data['guess'] = $guess;
+        $data['guess'] = $guess;
 
-		return view('roll_dice', $data);
-	}
+        return view('roll_dice', $data);
+    }
 
-	public function increment($number = 0)
-	{
-		$data['number'] = $number;
+    public function increment($number = 0)
+    {
+        $data['number'] = $number;
 
-		return view('increment', $data);
-	}
+        return view('increment', $data);
+    }
 }
