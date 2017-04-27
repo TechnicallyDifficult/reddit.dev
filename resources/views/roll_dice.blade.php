@@ -1,4 +1,4 @@
-@extends('layouts.common')
+@extends('layouts.basic')
 
 @section('content')
     <p>{{ $roll }}</p>

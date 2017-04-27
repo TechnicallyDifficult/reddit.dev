@@ -1,4 +1,4 @@
-@extends('layouts.common')
+@extends('layouts.basic')
 
 @section('content')
     <a href="{{ action('Main@increment', [$number - 1]) }}">-</a>
