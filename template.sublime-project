@@ -6,6 +6,7 @@
 			"name": "/",
 			"folder_include_patterns":
 			[
+				// "*",
 				"app",
 					"app/Console",
 						"app/Console/Commands",
@@ -75,6 +76,7 @@
 			"name": "DB Migrations",
 			"file_include_patterns":
 			[
+				// "*",
 				// "*_create_*_table.php",
 
 				// "*_users_*.php",
@@ -84,6 +86,8 @@
 				// "*_votes_*.php",
 					// "*_post_votes_*.php",
 					// "*_comment_votes_*.php",
+				// "*_tags_*.php",
+				// "*_tagmap_*.php",
 			],
 		},
 		{
