@@ -28,7 +28,7 @@ class PostsController extends Controller
     public function create()
     {
         // view "new post" page (only if logged in)
-        return 'create post';
+        return view('posts.new_post');
     }
 
     /**

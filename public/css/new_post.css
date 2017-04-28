@@ -1,0 +1,10 @@
+.post-body {
+	padding: 0;
+}
+
+textarea.form-control {
+	padding: 10px;
+	resize: none;
+	box-shadow: none;
+	background-color: transparent;
+}
