@@ -29,8 +29,6 @@ class Main extends Controller {
 
     public function add($x = 0, $y = 0)
     {
-        $pageTitle = 'Add';
-
         $o = $y < 0 ? '-' : '+';
 
         return view('add', $this->getLocalVars(get_defined_vars()));
@@ -38,8 +36,6 @@ class Main extends Controller {
 
     public function rolldice($guess = NULL)
     {
-        $pageTitle = 'Roll';
-
         $roll = mt_rand(1, 6);
 
         return view('roll_dice', $this->getLocalVars(get_defined_vars()));
@@ -47,8 +43,6 @@ class Main extends Controller {
 
     public function increment($number = 0)
     {
-        $pageTitle = "$number | Increment";
-
         return view('increment', $this->getLocalVars(get_defined_vars()));
     }
 

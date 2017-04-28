@@ -1,5 +1,7 @@
-@extends('layouts.basic')
+@extends('layouts.master')
+
+@section('pageTitle', 'Add')
 
 @section('content')
-    {{ $x }} {{ $o }} {{ abs($y) }} = {{ $x + $y }}
+    <p>{{ $x }} {{ $o }} {{ abs($y) }} = {{ $x + $y }}</p>
 @stop

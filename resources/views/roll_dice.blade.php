@@ -1,4 +1,6 @@
-@extends('layouts.basic')
+@extends('layouts.master')
+
+@section('pageTitle', 'Roll')
 
 @section('content')
     <p>{{ $roll }}</p>
