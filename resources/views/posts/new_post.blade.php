@@ -8,15 +8,27 @@
 @stop
 
 @section('post')
-    <h4 class="post-title">Wanna make a new post?</h4>
+    <header class="post-title">
+        <h1>Wanna make a new post?</h1>
+    </header>
     <form action="" method="POST">
         {!! csrf_field() !!}
-        <input type="text" name="title" class="form-control" required>
-        <input type="url" name="url" class="form-control">
-        <section class="post-body">
-            <textarea name="content" class="form-control"></textarea>
-        </section>
-        <input type="text" name="tags" class="form-control">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" class="form-control" placeholder="Title" required>
+        </div>
+        <div class="form-group">
+            <label for="url">Url</label>
+            <input type="url" name="url" id="url" class="form-control input-sm" placeholder="Link (Optional)">
+        </div>
+        <div class="form-group">
+            <label for="post-body">Content</label>
+            <textarea name="content" id="post-body" class="post-body form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="tags">Tags</label>
+            <input type="text" name="tags" id="tags" class="form-control input-sm" placeholder="Tags (Comma Separated)">
+        </div>
     </form>
 @stop
 
