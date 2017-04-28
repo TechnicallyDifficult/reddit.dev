@@ -19,7 +19,7 @@ if (isset($_SERVER['REQUEST_URI']) && substr($_SERVER['REQUEST_URI'], -1) !== '/
 
 Route::get('/', 'Main@root');
 
-Route::get('/helloworld/', 'Main@welcome');
+Route::get('/helloworld/', 'Main@helloworld');
 
 Route::get('/uppercase/{word?}/', 'ConvertCase@uppercase');
 
