@@ -7,36 +7,38 @@
     <link rel="stylesheet" type="text/css" href="/css/new_post.css">
 @stop
 
+@section('postTitle')
+    Wanna make a new post?
+@stop
+
 @section('post')
-    <header class="post-title">
-        <h1>Wanna make a new post?</h1>
-    </header>
-    <form action="" method="POST">
+    <form action="{{ action('PostsController@' . $action) }}" method="POST">
         {!! csrf_field() !!}
         <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" name="title" id="title" class="form-control" placeholder="Title" required>
+            <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}" required>
         </div>
         <div class="form-group">
-            <label for="url">Url</label>
-            <input type="url" name="url" id="url" class="form-control input-sm" placeholder="Link (Optional)">
+            <label for="url">Link (Optional)</label>
+            <input type="url" name="url" id="url" class="form-control input-sm" value="{{ old('url') }}">
         </div>
         <div class="form-group">
-            <label for="post-body">Content</label>
-            <textarea name="content" id="post-body" class="post-body form-control"></textarea>
+            <label for="post-content">Content</label>
+            <textarea name="content" id="post-content" class="post-body form-control" value="{{ old('content') }}"></textarea>
         </div>
         <div class="form-group">
-            <label for="tags">Tags</label>
-            <input type="text" name="tags" id="tags" class="form-control input-sm" placeholder="Tags (Comma Separated)">
+            <label for="tags">Tags (Comma Separated)</label>
+            <input type="text" name="tags" id="tags" class="form-control input-sm" value="{{ old('tags') }}">
         </div>
     </form>
 @stop
 
 @section('script')
+    @parent
     <script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/3.0.20/autosize.min.js"></script>
     <script>
         $(document).ready(function() {
             autosize($('textarea'));
         });
     </script>
-@append
+@stop

@@ -8,6 +8,9 @@
     <article id="post">
         <div class="row">
             <div class="col-sm-9">
+                <header class="post-title">
+                    <h1>@yield('postTitle')</h1>
+                </header>
                 @yield('post')
             </div>
         </div>

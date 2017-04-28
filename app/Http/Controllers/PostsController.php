@@ -9,6 +9,19 @@ use App\Http\Controllers\Controller;
 
 class PostsController extends Controller
 {
+    protected function getLocalVars($vars)
+    {
+        $ignore = ['GLOBALS', '_SERVER', '_GET', '_POST', '_FILES', '_REQUEST', '_SESSION', '_ENV', '_COOKIE', 'php_errormsg', 'HTTP_RAW_POST_DATA', 'http_response_header', 'argc', 'argv'];
+
+        foreach ($ignore as $name) {
+            if (isset($vars[$name])) {
+                unset($vars[$name]);
+            }
+        }
+
+        return $vars;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +41,10 @@ class PostsController extends Controller
     public function create()
     {
         // view "new post" page (only if logged in)
-        return view('posts.new_post');
+
+        $action = 'store';
+
+        return view('posts.new_post', $this->getLocalVars(get_defined_vars()));
     }
 
     /**
@@ -64,7 +80,10 @@ class PostsController extends Controller
     public function edit($id)
     {
         // view "edit post" page (only if logged in as admin or user who created initially)
-        return 'edit post';
+
+        $action = 'update';
+
+        return view('posts.edit_post', $this->getLocalVars(get_defined_vars()));
     }
 
     /**
