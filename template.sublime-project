@@ -76,18 +76,24 @@
 			"name": "DB Migrations",
 			"file_include_patterns":
 			[
-				// "*",
-				// "*_create_*_table.php",
+				// *,
+				// "*_create_table_*",
+				// "*_update_table_*"
+				// "*_drop_table_*",
 
-				// "*_users_*.php",
-				// "*_password_resets_*.php",
-				// "*_posts_*.php",
-				// "*_comments_*.php",
-				// "*_votes_*.php",
-					// "*_post_votes_*.php",
-					// "*_comment_votes_*.php",
-				// "*_tags_*.php",
-				// "*_tagmap_*.php",
+				// "*_add_column_*",
+				// "*_update_column_*",
+				// "*_drop_column_*",
+
+				// "*_table_users_*",
+				// "*_table_password_resets_*",
+				// "*_table_posts*",
+				// "*_table_comments*",
+				// "*_table_*votes*",
+					// "*_table_postvotes*",
+					// "*_table_commentvotes*",
+				// "*_table_tags*",
+				// "*_table_tagmap*",
 			],
 		},
 		{

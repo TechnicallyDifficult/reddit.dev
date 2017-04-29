@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostVotesTable extends Migration
+class CreateTablePostvotes extends Migration
 {
     /**
      * Run the migrations.
