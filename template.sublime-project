@@ -77,23 +77,23 @@
 			"file_include_patterns":
 			[
 				// *,
-				// "*_create_table_*",
-				// "*_update_table_*"
-				// "*_drop_table_*",
+				// "*_create_*_table_*",
+				// "*_update_*_table_*"
+				// "*_drop_*_table_*",
 
-				// "*_add_column_*",
-				// "*_update_column_*",
-				// "*_drop_column_*",
+				// "*_create_*_column_*",
+				// "*_update_*_column_*",
+				// "*_drop_*_column_*",
 
-				// "*_table_users_*",
-				// "*_table_password_resets_*",
-				// "*_table_posts*",
-				// "*_table_comments*",
-				// "*_table_*votes*",
-					// "*_table_postvotes*",
-					// "*_table_commentvotes*",
-				// "*_table_tags*",
-				// "*_table_tagmap*",
+				// "*_users_table*",
+				// "*_password_resets_table*",
+				"*_posts_table*",
+				"*_comments_table*",
+				"*votes_table*",
+					// "*_postvotes_table*",
+					// "*_commentvotes_table*",
+				"*_tags_table*",
+				"*_tagmap_table*",
 			],
 		},
 		{
