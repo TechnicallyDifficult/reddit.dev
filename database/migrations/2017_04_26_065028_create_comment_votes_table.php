@@ -14,8 +14,8 @@ class CreateCommentVotesTable extends Migration
     {
         Schema::create('comment_votes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->references('id')->on('users');
-            $table->integer('comment_id')->references('id')->on('comments');
+            $table->integer('user_id')->unsigned()->references('id')->on('users');
+            $table->integer('comment_id')->unsigned()->references('id')->on('comments');
             $table->boolean('vote');
             $table->timestamps();
         });
