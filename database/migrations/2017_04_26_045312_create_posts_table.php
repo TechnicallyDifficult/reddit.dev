@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableCommentvotes extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,14 @@ class CreateTableCommentvotes extends Migration
      */
     public function up()
     {
-        Schema::create('comment_votes', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title', 255);
+            $table->string('url', 255)->nullable();
+            $table->text('content');
             $table->integer('user_id')->unsigned()->references('id')->on('users');
-            $table->integer('comment_id')->unsigned()->references('id')->on('comments');
-            $table->boolean('vote');
+            $table->smallInteger('upvotes')->unsigned()->default('0');
+            $table->smallInteger('downvotes')->unsigned()->default('0');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateTableCommentvotes extends Migration
      */
     public function down()
     {
-        Schema::drop('comment_votes');
+        Schema::drop('posts');
     }
 }
