@@ -43,6 +43,7 @@ class PostsController extends Controller
         // view "new post" page (only if logged in)
 
         $action = 'store';
+        $method = 'POST';
 
         return view('posts.new_post', $this->getLocalVars(get_defined_vars()));
     }
@@ -56,7 +57,7 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         // save post to database
-        return 'store post';
+        return back()->withInput();
     }
 
     /**
@@ -82,6 +83,7 @@ class PostsController extends Controller
         // view "edit post" page (only if logged in as admin or user who created initially)
 
         $action = 'update';
+        $method = 'PUT';
 
         return view('posts.edit_post', $this->getLocalVars(get_defined_vars()));
     }

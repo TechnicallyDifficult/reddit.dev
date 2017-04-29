@@ -2,6 +2,10 @@ textarea {
 	resize: none;
 }
 
+.post-content>label {
+	display: none;
+}
+
 .form-control:focus {
 	border-color: #ccc;
 	box-shadow:
@@ -20,10 +24,10 @@ textarea {
 
 /*TODO: Make labels act like they do on login page*/
 
-/*label {
-	position: absolute;
+label {
+	/*position: absolute;*/
 	font-weight: normal;
-	font-size: 14px;
+	/*font-size: 14px;
 	color: #999;
 	top: 32px;
 	left: 13px;

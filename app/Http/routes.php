@@ -21,9 +21,9 @@ Route::get('/', 'Main@root');
 
 Route::get('/helloworld/', 'Main@helloworld');
 
-Route::get('/uppercase/{word?}/', 'ConvertCase@uppercase');
+Route::get('/uppercase/{word?}/', 'Main@uppercase');
 
-Route::get('/lowercase/{word?}/', 'ConvertCase@lowercase');
+Route::get('/lowercase/{word?}/', 'Main@lowercase');
 
 Route::get('/add/{x?}/{y?}/', 'Main@add');
 
@@ -31,4 +31,4 @@ Route::get('/rolldice/{guess?}/', 'Main@rolldice');
 
 Route::get('/increment/{number?}/', 'Main@increment');
 
-Route::resource('posts', 'PostsController');
+Route::resource('/posts/', 'PostsController');
