@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateTagsTableDropPoststaggedColumn extends Migration
+class UpdateTagsTableDropPostsTaggedColumn extends Migration
 {
     /**
      * Run the migrations.
