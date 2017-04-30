@@ -4,7 +4,10 @@ Homestead.yaml
 Homestead.json
 .env
 
+# Stuff I added
 */tmp
 *.project
 *.DS_Store
 *.idea
+*.sublime-workspace
+reddit.sublime-project

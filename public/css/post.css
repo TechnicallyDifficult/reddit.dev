@@ -1,0 +1,16 @@
+.post-body {
+	padding: 10px;
+	border: 1px solid #2E45FF;
+	border-radius: 5px;
+	background-color: #DCE4FF;
+}
+
+.comments-header {}
+
+.post-title>h1 {
+	font-size: 18px;
+}
+
+.comments-header>h1 {
+	font-size: 18px;
+}
