@@ -78,7 +78,7 @@
 			[
 				// *,
 				// "*_create_*_table_*",
-				// "*_update_*_table_*"
+				// "*_update_*_table_*",
 				// "*_drop_*_table_*",
 
 				// "*_create_*_column_*",
