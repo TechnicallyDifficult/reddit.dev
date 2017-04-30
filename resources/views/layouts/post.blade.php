@@ -7,7 +7,7 @@
 @section('content')
     <article id="post">
         <div class="row">
-            <div class="col-sm-9">
+            <div class="col-sm-8 col-md-9">
                 <header class="post-title">
                     <h1>@yield('postTitle')</h1>
                 </header>
