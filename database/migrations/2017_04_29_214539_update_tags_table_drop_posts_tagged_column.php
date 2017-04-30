@@ -25,7 +25,7 @@ class UpdateTagsTableDropPostsTaggedColumn extends Migration
     public function down()
     {
         Schema::table('tags', function($table) {
-            $table->$table->integer('posts_tagged')->unsigned()->default('0');
+            $table->integer('posts_tagged')->unsigned()->default('0');
         });
     }
 }
