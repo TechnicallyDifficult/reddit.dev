@@ -52,16 +52,23 @@
 				// "vendor"
 					// no need to mess with anything in here
 			],
-			"file_exclude_patterns":
+			"file_include_patterns":
 			[
+				".env",
+				".env.example",
 				".gitattributes",
+				".gitignore",
 				"artisan",
-				"composer.*",
+				"composer.json",
+				"composer.lock",
 				"gulpfile.js",
 				"package.json",
 				"phpspec.yml",
 				"phpunit.xml",
+				"readme.md",
+				"reddit.sublime-project",
 				"server.php",
+				"template.sublime-project",
 			],
 		},
 		{
