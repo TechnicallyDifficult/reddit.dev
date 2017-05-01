@@ -31,4 +31,4 @@ Route::get('/rolldice/{guess?}/', 'Main@rolldice');
 
 Route::get('/increment/{number?}/', 'Main@increment');
 
-Route::resource('/posts/', 'PostsController');
+Route::resource('posts', 'PostsController');
