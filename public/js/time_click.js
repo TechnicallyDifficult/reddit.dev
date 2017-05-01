@@ -1,13 +1,9 @@
-$(document).ready(function() {
-	function swapTime()
-	{
-		$(this)
-			.children('time')
-			.children('span')
-			.toggleClass('hidden');
-	}
+'use strict';
 
-	$('a, .time').each(function(index, el) {
-		el.click(swapTime);
-	});
+$(document).ready(function () {
+    $('.multidate').click(function () {
+        $(this)
+            .children('span')
+            .toggleClass('hidden');
+    });
 });
