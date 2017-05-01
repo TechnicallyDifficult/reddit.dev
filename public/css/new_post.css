@@ -14,7 +14,7 @@ textarea {
 		0 0 4px 2px rgba(255,255,48,0.4);
 }
 
-.post-body.form-control:focus {
+.post-content.form-control:focus {
 	border-width: 2px;
 	box-shadow:
 		inset 0 0 3px 2px rgba(0,0,0,0.075),
@@ -34,5 +34,5 @@ label {
 	left: 13px;
 	transition-duration: 200ms;
 	user-select: none;
-	pointer-events: none;
-}*/
+	pointer-events: none;*/
+}
