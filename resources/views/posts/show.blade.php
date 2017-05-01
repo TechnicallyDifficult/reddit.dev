@@ -6,25 +6,23 @@
 
 @section('postTitle')
     @if (isset($post->url))
-        <a href="$post->url">$post->title</a>
+        <a href="{{ $post->url }}">{{ $post->title }}</a>
     @else
-        $post->title
+        {{ $post->title }}
     @endif
 @stop
 
 @section('post')
     <footer>
         Submitted 
-        <a class="time">
-            <time datetime="{{ $post->date_created->format('c') }}">
-                <span class="date-created hidden">
-                    {{ $post->date_created->format('') }}
-                </span>
-                <span class="date-created-relative">
-                    {{ preg_replace('~\b1\b~', 'a', $post->date_created->diffForHumans()) }} ago
-                </span>
-            </time>
-        </a>
+        <time class="multidate" datetime="{{ $post->created_at->toIso8601String() }}">
+            <span class="date-created hidden">
+                {{ $post->created_at->format('m/d/Y H:i a') }}
+            </span>
+            <span class="date-created-relative">
+                {{ $post->getTimeAgo('created_at') }}
+            </span>
+        </time>
          * by 
         <a href="{{-- {{ POST_AUTHOR_PAGE }} --}}" id="post-author">
             {{ $post->user_id /* TODO: Change this to actual username */}}
@@ -40,9 +38,4 @@
 @stop
 
 @section('comments')
-@stop
-
-@section('script')
-    @parent
-    <script type="text/javascript" src="/js/time_click.js"></script>
 @stop

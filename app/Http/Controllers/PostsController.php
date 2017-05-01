@@ -30,7 +30,7 @@ class PostsController extends Controller
     public function index()
     {
         // list all posts
-        return 'all posts';
+        return view('posts.index');
     }
 
     /**
@@ -45,7 +45,7 @@ class PostsController extends Controller
         $action = 'store';
         $method = 'POST';
 
-        return view('posts.new_post', $this->getLocalVars(get_defined_vars()));
+        return view('posts.create', $this->getLocalVars(get_defined_vars()));
     }
 
     /**
@@ -69,7 +69,10 @@ class PostsController extends Controller
     public function show($id)
     {
         // view a particular post's page
-        return 'show post';
+
+        $post = \App\Models\Post::find($id);
+
+        return view('posts.show', $this->getLocalVars(get_defined_vars()));
     }
 
     /**
@@ -85,7 +88,7 @@ class PostsController extends Controller
         $action = 'update';
         $method = 'PUT';
 
-        return view('posts.edit_post', $this->getLocalVars(get_defined_vars()));
+        return view('posts.edit', $this->getLocalVars(get_defined_vars()));
     }
 
     /**
