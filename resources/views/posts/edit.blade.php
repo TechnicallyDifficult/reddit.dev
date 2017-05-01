@@ -1,4 +1,4 @@
-@extends('posts.new_post')
+@extends('posts.create')
 
 @section('pageTitle', "Edit Post - "/* . OLD_POST_TITLE_HERE*/)
 

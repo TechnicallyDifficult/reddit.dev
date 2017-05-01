@@ -1,4 +1,4 @@
-@extends('layouts.post')
+@extends('layouts.posts')
 
 @section('pageTitle')
     {{ $post->title }} - Posts

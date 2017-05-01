@@ -1,10 +1,10 @@
-@extends('layouts.post')
+@extends('layouts.posts')
 
 @section('pageTitle', 'New Post')
 
 @section('style')
     @parent
-    <link rel="stylesheet" type="text/css" href="/css/new_post.css">
+    <link rel="stylesheet" href="/css/posts_create.css">
 @stop
 
 @section('postTitle')
