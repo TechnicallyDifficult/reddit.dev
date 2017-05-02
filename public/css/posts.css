@@ -2,7 +2,7 @@
     font-size: 18px;
 }
 
-#post>submain, .post-body {
+.post-body {
     padding: 10px;
     border: 1px solid #2E45FF;
     border-radius: 5px;

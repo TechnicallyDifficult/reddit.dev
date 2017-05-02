@@ -10,9 +10,7 @@
 @section('content')
     <article id="post">
         <header>
-            <h1>
-                @yield('postTitle', 'Wanna make a new post?')
-            </h1>
+            <h1>@yield('postTitle', 'Wanna make a new post?')</h1>
         </header>
 
         <form method="POST" action="{{ action('PostsController@' . $action) }}/" autocomplete="off">
