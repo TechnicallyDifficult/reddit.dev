@@ -14,7 +14,7 @@ class UpdatePostsTableAddEditedByColumn extends Migration
     {
         Schema::table('posts', function($table) {
             $table->renameColumn('user_id', 'created_by');
-            $table->integer('edited_by')->unsigned()->references('id')->on('users');
+            $table->integer('edited_by')->unsigned()->nullable()->references('id')->on('users');
         });
     }
 
@@ -25,6 +25,9 @@ class UpdatePostsTableAddEditedByColumn extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('posts', function($table) {
+            $table->renameColumn('created_by', 'user_id');
+            $table->dropColumn('edited_by');
+        });
     }
 }
