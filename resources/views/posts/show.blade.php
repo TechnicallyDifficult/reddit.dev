@@ -24,10 +24,10 @@
             {{ $post->content }}
             <div>
                 @if (false/* USER_IS_POST_AUTHOR_OR_ADMIN */)
-                    <a href="{{ action('PostController@edit') }}" class="btn btn-info">
+                    <a href="{{ action('PostsController@edit') }}" class="btn btn-info">
                         Edit
                     </a>
-                    <a href="{{ action('PostController@delete') }}" class="btn btn-danger">
+                    <a href="{{ action('PostsController@delete') }}" class="btn btn-danger">
                         Delete
                     </a>
                 @endif

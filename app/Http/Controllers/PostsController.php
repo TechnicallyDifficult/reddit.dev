@@ -30,7 +30,10 @@ class PostsController extends Controller
     public function index()
     {
         // list all posts
-        return view('posts.index');
+
+        $posts = \App\Models\Post::all();
+
+        return view('posts.index', $this->getLocalVars(get_defined_vars()));
     }
 
     /**
