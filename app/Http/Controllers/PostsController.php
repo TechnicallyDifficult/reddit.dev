@@ -60,7 +60,20 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         // save post to database
-        return back()->withInput();
+
+        $post = new \App\Models\Post;
+
+        $post->created_by = mt_rand(1, 9999);
+
+        $post->title = $request->title;
+
+        $post->url = $request->url;
+
+        $post->content = $request->content;
+
+        $post->save();
+
+        return redirect("posts/{$post->id}/");
     }
 
     /**
