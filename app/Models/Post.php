@@ -7,6 +7,12 @@ use Carbon\Carbon;
 
 class Post extends Model
 {
+    public static $rules = [
+        'title' => 'string|max:255|required',
+        'url' => 'string|max:255|url|active_url|required_without:content',
+        'content' => 'string|required_without:url'
+    ];
+
     protected $table = 'posts';
 
     protected $dates = [

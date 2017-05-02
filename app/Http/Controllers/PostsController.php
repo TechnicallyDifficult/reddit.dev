@@ -45,7 +45,7 @@ class PostsController extends Controller
     {
         // view "new post" page (only if logged in)
 
-        $action = 'store';
+        $action = action('PostsController@store');
         $method = 'POST';
 
         return view('posts.create', $this->getLocalVars(get_defined_vars()));
@@ -61,14 +61,13 @@ class PostsController extends Controller
     {
         // save post to database
 
-        $post = new \App\Models\Post;
+        $this->validate($request, Post::$rules);
+
+        $post = new Post;
 
         $post->created_by = mt_rand(1, 9999);
-
         $post->title = $request->title;
-
         $post->url = $request->url;
-
         $post->content = $request->content;
 
         $post->save();
@@ -101,8 +100,9 @@ class PostsController extends Controller
     {
         // view "edit post" page (only if logged in as admin or user who created initially)
 
-        $action = 'update';
+        $action = action('PostsController@update', $id);
         $method = 'PUT';
+        $post = \App\Models\Post::find($id);
 
         return view('posts.edit', $this->getLocalVars(get_defined_vars()));
     }
@@ -117,6 +117,8 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
         // update post's entry in database
+        $this->validate($request, Post::$rules)
+
         return 'update post';
     }
 
