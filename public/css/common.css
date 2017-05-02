@@ -1,3 +1,19 @@
+page, submain, formgroup {
+	display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: inherit;
+	font-weight: inherit;
+}
+
 .multidate {
 	cursor: pointer;
 }
+
+a:not([href]) {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+a.placeholder:not([href]) {}
