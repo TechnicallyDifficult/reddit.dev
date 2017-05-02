@@ -1,5 +1,7 @@
-@extends('posts.create')
+@extends('posts.post_form')
 
 @section('pageTitle', 'Edit Post - ' . $post->title)
 
-@section('postTitle', 'Looking to edit a post?')
+@section('formHeader', 'Looking to edit a post?')
+
+@section('submitText', 'Update')
