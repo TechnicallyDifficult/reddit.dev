@@ -1,9 +1,9 @@
 'use strict';
 
 $(document).ready(function () {
-    $('.multidate').click(function () {
+    $('.multivalue').click(function () {
         $(this)
-            .children('span')
+            .children('.value')
             .toggleClass('hidden');
     });
 });
