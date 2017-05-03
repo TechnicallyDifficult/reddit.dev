@@ -32,7 +32,7 @@
 					name="title"
 					id="post-title"
 					class="form-control"
-					value="{{ old('title') !== NULL ? old('title') : isset($post) and isset($post->title) ? $post->title : NULL }}"
+					value="{{ old('title') !== NULL ? old('title') : (isset($post) and isset($post->title) ? $post->title : NULL) }}"
 					required>
 			</formgroup>
 
@@ -49,7 +49,7 @@
 					name="url"
 					id="post-url"
 					class="form-control input-sm"
-					value="{{ old('url') !== NULL ? old('url') : isset($post) and isset($post->url) ? $post->url : NULL }}">
+					value="{{ old('url') !== NULL ? old('url') : (isset($post) and isset($post->url) ? $post->url : NULL) }}">
 			</formgroup>
 
 			@if ($errors->has('content'))
@@ -64,7 +64,7 @@
 					name="content"
 					id="post-content"
 					class="post-body form-control"
-					>{{ old('content') !== NULL ? old('content') : isset($post) and isset($post->content) ? $post->content : '' }}</textarea>
+					>{{ old('content') !== NULL ? old('content') : (isset($post) and isset($post->content) ? $post->content : NULL) }}</textarea>
 			</formgroup>
 
 			@if ($errors->has('tags'))
