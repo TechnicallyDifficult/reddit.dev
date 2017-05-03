@@ -8,9 +8,9 @@
 		<main class="col-sm-8 col-md-9">
 			@if (isset($request) and $request->session()->has('messages'))
 				@foreach (session('messages') as $message)
-					<info class="message alert alert-{{ $message['type'] }}">
+					<alert class="message alert alert-{{ $message['type'] }}">
 						{!! $message['message'] !!}
-					</info>
+					</alert>
 				@endforeach
 			@endif
 			@yield('content')
