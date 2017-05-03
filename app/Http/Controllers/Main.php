@@ -50,4 +50,9 @@ class Main extends BaseController {
 
 		return view('convert_case', $this->getLocalVars(get_defined_vars()));
 	}
+
+	public function error($error)
+	{
+		return view("errors.$error");
+	}
 }

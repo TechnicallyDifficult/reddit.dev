@@ -57,8 +57,8 @@ class PostsController extends BaseController
 		$post->created_by = mt_rand(1, 9999);
 
 		foreach ($post->getFillable() as $column) {
-			if (isset($request[$column]) and $request[$column]) {
-				$post[$column] = $request[$column];
+			if (isset($request[$column])) {
+				$post[$column] = $request[$column] ? $request[$column] : NULL;
 			}
 		}
 
@@ -83,7 +83,7 @@ HTML
 	{
 		// view a particular post's page
 
-		$post = Post::find($id);
+		$post = Post::findOrFail($id);
 
 		return view('posts.show', $this->getLocalVars(get_defined_vars()));
 	}
@@ -100,7 +100,7 @@ HTML
 
 		$action = action('PostsController@update', $id);
 		$method = 'PUT';
-		$post = Post::find($id);
+		$post = Post::findOrFail($id);
 
 		return view('posts.edit', $this->getLocalVars(get_defined_vars()));
 	}
@@ -115,22 +115,18 @@ HTML
 	public function update(Request $request, $id)
 	{
 		// update post's entry in database
-		$update = false;
 
 		$this->validate($request, Post::$rules);
 
-		$post = Post::find($id);
+		$post = Post::findOrFail($id);
 
 		foreach ($post->getFillable() as $column) {
-			if (isset($request[$column]) and $request[$column] and $request[$column] !== $post[$column]) {
-				$post[$column] = $request[$column];
-				$update = true;
+			if (isset($request[$column]) and $request[$column]) {
+				$this->updates[$column] = $post[$column] = $request[$column] ? $request[$column] : NULL;
 			}
 		}
 
-		if ($update) {
-			$post->save();
-		}
+		$post->save();
 
 		return redirect("posts/$id/");
 	}
