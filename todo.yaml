@@ -1,0 +1,38 @@
+# TODO
+
+task: update tables "posts" and "comments"
+	- column: modified_by
+		comment: null if never been modified
+		comment: contains user_id of person who last modified it
+
+task: add table "user_prefs"
+	- column: user_id
+	- column: timezone
+		comment: user's preferred timezone
+		comment: if possible defaults to their system's
+	- column: display_theme
+		comment: styling scheme that will be used on website
+
+task: add table "emails"
+	- column: user_id
+	- column: priority
+	- column: email
+	- column: timestamps()
+
+task: add table "user_profiles"
+	- column: user_id
+	- column: display_name
+		comment: name that will be displayed
+		comment: moved over from "users" table
+		comment: if null, display username instead
+	- column: avatar
+		comment: MAYBE...
+	- column: description
+	- column: 
+
+task: add table "subreddits"
+	- column: id
+	- column: name
+	- column: created_by
+	- column: 
+	- column: timestamps()

@@ -2,23 +2,25 @@
 	"folders":
 	[
 		{
-			"path": ".",
 			"name": "/",
+			"path": ".",
 			"folder_include_patterns":
 			[
-				// "*",
+				"*",
 				"app",
 					"app/Console",
 						"app/Console/Commands",
-					"app/Events",
+				"app/Events",
 					"app/Exceptions",
+					"app/Helpers"
 					"app/Http",
-						"app/Http/Controllers",
-							"app/Http/Controllers/Auth",
-						"app/Http/Middleware",
-						"app/Http/Requests",
+					"app/Http/Controllers",
+						"app/Http/Controllers/Auth",
+					"app/Http/Middleware",
+					"app/Http/Requests",
 					"app/Jobs",
 					"app/Listeners",
+					"app/Models",
 					"app/Policies",
 					"app/Providers",
 				"bootstrap",
@@ -29,7 +31,8 @@
 					"database/migrations",
 					"database/seeds",
 				"public",
-					"css",
+					"public/css",
+					"public/js",
 				"resources",
 					"resources/assets",
 						"resources/assets/sass",
@@ -49,34 +52,45 @@
 						"storage/framework/views",
 					"storage/logs",
 				"tests",
-				// "vendor"
-					// no need to mess with anything in here
+				"vendor"
 			],
 			"file_exclude_patterns":
 			[
-				".gitattributes",
-				"artisan",
-				"composer.*",
-				"gulpfile.js",
-				"package.json",
-				"phpspec.yml",
-				"phpunit.xml",
-				"server.php",
-			],
+				// ".env",
+				// ".env.example",
+				// ".gitattributes",
+				// ".gitignore",
+				// "artisan",
+				// "composer.json",
+				// "composer.lock",
+				// "gulpfile.js",
+				// "package.json",
+				// "phpspec.yml",
+				// "phpunit.xml",
+				// "readme.md",
+				// "reddit.sublime-project",
+				// "server.php",
+				// "template.sublime-project",
+				// "todo.yaml"
+			]
 		},
 		{
 			"path": "app/Http/Controllers",
 			"folder_include_patterns":
 			[
-				"Auth",
-			],
+				"*",
+				"Auth"
+			]
+		},
+		{
+			"path": "app/Models"
 		},
 		{
 			"path": "database/migrations",
 			"name": "DB Migrations",
 			"file_include_patterns":
 			[
-				// *,
+				"*",
 				// "*_create_*_table_*",
 				// "*_update_*_table_*",
 				// "*_drop_*_table_*",
@@ -87,28 +101,48 @@
 
 				// "*_users_table*",
 				// "*_password_resets_table*",
-				"*_posts_table*",
-				"*_comments_table*",
-				"*_votes_table*",
-					// "*_post_votes_table*",
-					// "*_comment_votes_table*",
-				"*_tags_table*",
-				"*_tagmap_table*",
-			],
+				// "*_posts_table*",
+				// "*_comments_table*",
+				// "*_votes_table*",
+				// 	"*_post_votes_table*",
+				// 	"*_comment_votes_table*",
+				// "*_tags_table*",
+				// "*_tagmap_table*"
+			]
 		},
 		{
 			"path": "resources/views",
 			"folder_include_patterns":
 			[
+				"*",
 				"errors",
 				"layouts",
 				"partials",
+					"partials/scripts",
 				"posts",
-				"vendor",
-			],
+				"vendor"
+			]
 		},
 		{
-			"path": "public"
+			"path": "public",
+			"folder_include_patterns":
+			[
+				"*",
+				"css",
+				"js"
+			]
+		},
+		{
+			"path": "app/Http",
+			"name": "routes",
+			"folder_exclude_patterns":
+			[
+				"*"
+			],
+			"file_include_patterns":
+			[
+				"routes.php"
+			]
 		}
 	]
 }

@@ -1,0 +1,14 @@
+#post>header {
+    font-size: 18px;
+}
+
+.post-body {
+    padding: 10px;
+    border: 1px solid #2E45FF;
+    border-radius: 5px;
+    background-color: #DCE4FF;
+}
+
+#comments>header {
+    font-size: 18px;
+}

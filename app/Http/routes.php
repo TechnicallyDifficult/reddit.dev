@@ -12,9 +12,9 @@
 */
 
 // first things first, let's make sure that url is all pretty
-if (isset($_SERVER['REQUEST_URI']) && substr($_SERVER['REQUEST_URI'], -1) !== '/') {
-    header("Location: {$_SERVER['REQUEST_URI']}/");
-    die;
+if (isset($_SERVER['REQUEST_URI']) and substr($_SERVER['REQUEST_URI'], -1) !== '/' and !preg_match('~^.*\?.+$~', $_SERVER['REQUEST_URI'])) {
+	header("Location: {$_SERVER['REQUEST_URI']}/");
+	die;
 }
 
 Route::get('/', 'Main@root');
@@ -31,4 +31,4 @@ Route::get('/rolldice/{guess?}/', 'Main@rolldice');
 
 Route::get('/increment/{number?}/', 'Main@increment');
 
-Route::resource('/posts/', 'PostsController');
+Route::resource('posts', 'PostsController', ['parameters' => ['posts' => 'id']]);

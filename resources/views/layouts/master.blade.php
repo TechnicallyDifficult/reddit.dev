@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Bootstrap -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link
-        rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
-
-    @yield('style')
-
-    <title>
-        @hasSection('pageTitle')
-            @yield('pageTitle') ~ reddit.dev
-        @else
-            reddit.dev
-        @endif
-    </title>
+	@include('partials.common_head')
 </head>
 <body>
-    <main class="container-fluid">
-        @yield('content')
-    </main>
+	<page class="container-fluid">
+		<main class="col-sm-8 col-md-9">
+			@if (isset($request) and $request->session()->has('messages'))
+				@foreach (session('messages') as $message)
+					<info class="message alert alert-{{ $message['type'] }}">
+						{!! $message['message'] !!}
+					</info>
+				@endforeach
+				{{-- @if ($request->session()->has('message'))
+					<info class="message alert alert-info">
+						{!! session('message') !!}
+					</info>
+				@endif
+				@if ($request->session()->has('successMessage'))
+					<info class="message alert alert-success">
+						{!! session('successMessage') !!}
+					</info>
+				@endif
+				@if ($request->session()->has('warningMessage'))
+					<info class="message alert alert-warning">
+						{!! $request->session('warningMessage') !!}
+					</info>
+				@endif
+				@if ($request->session()->has('dangerMessage'))
+					<info class="message alert alert-danger">
+						{!! $request->session('dangerMessage') !!}
+					</info>
+				@endif --}}
+			@endif
+			@yield('content')
+		</main>
 
-    @hasSection('sidebar')
-        <aside>
-            @yield('sidebar')
-        </aside>
-    @endif
+		@hasSection('sidebar')
+			<aside id="sidebar">
+				@yield('sidebar')
+			</aside>
+		@endif
+	</page>
 
-    <!-- jQuery -->
-    <script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script
-        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-
-    @yield('script')
+	@include('partials.scripts.common')
+	@yield('script')
 </body>
 </html>
