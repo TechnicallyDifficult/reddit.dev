@@ -20,9 +20,9 @@
 			{!! csrf_field() !!}
 			
 			@if ($errors->has('title'))
-				<info class="alert alert-danger">
+				<alert class="alert alert-danger">
 					{{ $errors->first('title') }}
-				</info>
+				</alert>
 			@endif
 
 			<formgroup class="form-group post-title">
@@ -37,9 +37,9 @@
 			</formgroup>
 
 			@if ($errors->has('url'))
-				<info class="alert alert-danger">
+				<alert class="alert alert-danger">
 					{{ $errors->first('url') }}
-				</info>
+				</alert>
 			@endif
 
 			<formgroup class="form-group post-url">
@@ -53,9 +53,9 @@
 			</formgroup>
 
 			@if ($errors->has('content'))
-				<info class="alert alert-danger">
+				<alert class="alert alert-danger">
 					{{ $errors->first('content') }}
-				</info>
+				</alert>
 			@endif
 
 			<formgroup class="form-group post-content">
@@ -68,9 +68,9 @@
 			</formgroup>
 
 			@if ($errors->has('tags'))
-				<info class="alert alert-danger">
+				<alert class="alert alert-danger">
 					{{ $errors->first('tags') }}
-				</info>
+				</alert>
 			@endif
 
 			<formgroup class="form-group post-tags">

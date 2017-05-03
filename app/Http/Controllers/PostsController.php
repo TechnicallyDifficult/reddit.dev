@@ -9,21 +9,8 @@ use App\Http\Controllers\Controller;
 use \App\Models\Post;
 use \App\Helpers\Flash;
 
-class PostsController extends Controller
+class PostsController extends BaseController
 {
-	protected function getLocalVars($vars)
-	{
-		$ignore = ['GLOBALS', '_SERVER', '_GET', '_POST', '_FILES', '_REQUEST', '_SESSION', '_ENV', '_COOKIE', 'php_errormsg', 'HTTP_RAW_POST_DATA', 'http_response_header', 'argc', 'argv'];
-
-		foreach ($ignore as $name) {
-			if (isset($vars[$name])) {
-				unset($vars[$name]);
-			}
-		}
-
-		return $vars;
-	}
-
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -70,8 +57,8 @@ class PostsController extends Controller
 		$post->created_by = mt_rand(1, 9999);
 
 		foreach ($post->getFillable() as $column) {
-			if (isset($request[$column]) and $request[$column]) {
-				$post[$column] = $request[$column];
+			if (isset($request[$column])) {
+				$post[$column] = $request[$column] ? $request[$column] : NULL;
 			}
 		}
 
@@ -96,7 +83,7 @@ HTML
 	{
 		// view a particular post's page
 
-		$post = Post::find($id);
+		$post = Post::findOrFail($id);
 
 		return view('posts.show', $this->getLocalVars(get_defined_vars()));
 	}
@@ -113,7 +100,7 @@ HTML
 
 		$action = action('PostsController@update', $id);
 		$method = 'PUT';
-		$post = Post::find($id);
+		$post = Post::findOrFail($id);
 
 		return view('posts.edit', $this->getLocalVars(get_defined_vars()));
 	}
@@ -128,22 +115,18 @@ HTML
 	public function update(Request $request, $id)
 	{
 		// update post's entry in database
-		$update = false;
 
 		$this->validate($request, Post::$rules);
 
-		$post = Post::find($id);
+		$post = Post::findOrFail($id);
 
 		foreach ($post->getFillable() as $column) {
-			if (isset($request[$column]) and $request[$column] and $request[$column] !== $post[$column]) {
-				$post[$column] = $request[$column];
-				$update = true;
+			if (isset($request[$column]) and $request[$column]) {
+				$this->updates[$column] = $post[$column] = $request[$column] ? $request[$column] : NULL;
 			}
 		}
 
-		if ($update) {
-			$post->save();
-		}
+		$post->save();
 
 		return redirect("posts/$id/");
 	}

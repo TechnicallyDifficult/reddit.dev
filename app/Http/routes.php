@@ -32,3 +32,5 @@ Route::get('/rolldice/{guess?}/', 'Main@rolldice');
 Route::get('/increment/{number?}/', 'Main@increment');
 
 Route::resource('posts', 'PostsController', ['parameters' => ['posts' => 'id']]);
+
+Route::get('/{error}/', 'Main@error')->where('error', '^\d+$');

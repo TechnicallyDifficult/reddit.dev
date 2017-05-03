@@ -27,6 +27,11 @@ class Post extends Model
 		'deleted_at'*/
 	];
 
+	public function getFillable()
+	{
+		return $this->fillable;
+	}
+
 	public function getTimeAgo($date)
 	{
 		return preg_replace(['~^1 day ago~', '~^1\b~'], ['yesterday', 'a'], $this[$date]->diffForHumans());
@@ -37,10 +42,5 @@ class Post extends Model
 		$placeholders = ['Guy', 'Girl', 'Fungus', 'Algae', 'Bacterium', 'Protozoa', 'Person', 'Dragon', 'Woof', 'Mew', 'Fuzz', 'Potato', 'Filename', 'Person', 'Random', '[deleted]', 'Meme', 'Insect', 'Placeholder', 'Table', 'Object', 'Floof', 'Username', 'NULL', 'NPC', 'String', 'Function', 'Boop', 'Error: Placeholder not silly enough'];
 
 		return 'someRandom' . $placeholders[array_rand($placeholders)];
-	}
-
-	public function getFillable()
-	{
-		return $this->fillable;
 	}
 }
