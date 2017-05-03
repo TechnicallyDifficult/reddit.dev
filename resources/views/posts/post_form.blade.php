@@ -18,6 +18,12 @@
 
 			{{ method_field($method) }}
 			{!! csrf_field() !!}
+			
+			@if ($errors->has('title'))
+				<div class="help-block alert alert-danger">
+					{{ $errors->first('title') }}
+				</div>
+			@endif
 
 			<formgroup class="form-group post-title">
 				<label for="post-title">Title</label>
@@ -26,9 +32,15 @@
 					name="title"
 					id="post-title"
 					class="form-control"
-					value="{{ old('title') !== NULL ? old('title') : isset($post->title) ? $post->title : NULL }}"
+					value="{{ old('title') !== NULL ? old('title') : isset($post) and isset($post->title) ? $post->title : NULL }}"
 					required>
 			</formgroup>
+
+			@if ($errors->has('url'))
+				<div class="help-block alert alert-danger">
+					{{ $errors->first('url') }}
+				</div>
+			@endif
 
 			<formgroup class="form-group post-url">
 				<label for="post-url">Link (Optional)</label>
@@ -37,8 +49,14 @@
 					name="url"
 					id="post-url"
 					class="form-control input-sm"
-					value="{{ old('url') !== NULL ? old('url') : isset($post->url) ? $post->url : NULL }}">
+					value="{{ old('url') !== NULL ? old('url') : isset($post) and isset($post->url) ? $post->url : NULL }}">
 			</formgroup>
+
+			@if ($errors->has('content'))
+				<div class="help-block alert alert-danger">
+					{{ $errors->first('content') }}
+				</div>
+			@endif
 
 			<formgroup class="form-group post-content">
 				<label for="post-content" class="sr-only">Content</label>
@@ -46,8 +64,14 @@
 					name="content"
 					id="post-content"
 					class="post-body form-control"
-					>{{ old('content') !== NULL ? old('content') : isset($post->content) ? $post->content : '' }}</textarea>
+					>{{ old('content') !== NULL ? old('content') : isset($post) and isset($post->content) ? $post->content : '' }}</textarea>
 			</formgroup>
+
+			@if ($errors->has('tags'))
+				<div class="help-block alert alert-danger">
+					{{ $errors->first('tags') }}
+				</div>
+			@endif
 
 			<formgroup class="form-group post-tags">
 				<label for="post-tags">Tags (Comma Separated)</label>
