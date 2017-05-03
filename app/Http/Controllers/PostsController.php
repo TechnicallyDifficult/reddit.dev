@@ -32,7 +32,7 @@ class PostsController extends Controller
 	{
 		// list all posts
 
-		$posts = Post::all();
+		$posts = Post::paginate(10);
 
 		return view('posts.index', $this->getLocalVars(get_defined_vars()));
 	}
