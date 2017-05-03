@@ -19,6 +19,14 @@ h1, h2, h3, h4, h5, h6 {
 	cursor: pointer;
 }
 
+.help-block.alert-danger {
+	color: #737373;
+}
+
+button[type="button"] {
+	cursor: default;
+}
+
 a:not([href]) {
 	color: inherit;
 	text-decoration: inherit;
