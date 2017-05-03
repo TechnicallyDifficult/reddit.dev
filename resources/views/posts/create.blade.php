@@ -5,3 +5,5 @@
 @section('formHeader', 'Wanna make a new post?')
 
 @section('submitText', 'Post')
+
+@section('cancelLink', action('PostsController@index'))
