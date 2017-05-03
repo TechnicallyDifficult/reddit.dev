@@ -12,7 +12,7 @@
 */
 
 // first things first, let's make sure that url is all pretty
-if (isset($_SERVER['REQUEST_URI']) && substr($_SERVER['REQUEST_URI'], -1) !== '/') {
+if (isset($_SERVER['REQUEST_URI']) and substr($_SERVER['REQUEST_URI'], -1) !== '/' and !preg_match('~^.*\?.+$~', $_SERVER['REQUEST_URI'])) {
     header("Location: {$_SERVER['REQUEST_URI']}/");
     die;
 }
