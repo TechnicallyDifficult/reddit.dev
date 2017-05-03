@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use \App\Models\Post;
+use \App\Helpers\Flash;
 
 class PostsController extends Controller
 {
@@ -76,6 +77,12 @@ class PostsController extends Controller
 
 		$post->save();
 
+		Flash::push('messages', ['type' => 'success', 'message' => <<<HTML
+			<p>Post successfully created!</p>
+			<p class="submessage">If you couldn't already tell...</p>
+HTML
+		]);
+
 		return redirect("posts/{$post->id}/");
 	}
 
@@ -85,7 +92,7 @@ class PostsController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show($id)
+	public function show(Request $request, $id)
 	{
 		// view a particular post's page
 

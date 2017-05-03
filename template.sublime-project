@@ -12,6 +12,7 @@
 						"app/Console/Commands",
 				"app/Events",
 					"app/Exceptions",
+					"app/Helpers"
 					"app/Http",
 					"app/Http/Controllers",
 						"app/Http/Controllers/Auth",
@@ -55,21 +56,22 @@
 			],
 			"file_exclude_patterns":
 			[
-				".env",
-				".env.example",
-				".gitattributes",
-				".gitignore",
-				"artisan",
-				"composer.json",
-				"composer.lock",
-				"gulpfile.js",
-				"package.json",
-				"phpspec.yml",
-				"phpunit.xml",
-				"readme.md",
-				"reddit.sublime-project",
-				"server.php",
-				"template.sublime-project"
+				// ".env",
+				// ".env.example",
+				// ".gitattributes",
+				// ".gitignore",
+				// "artisan",
+				// "composer.json",
+				// "composer.lock",
+				// "gulpfile.js",
+				// "package.json",
+				// "phpspec.yml",
+				// "phpunit.xml",
+				// "readme.md",
+				// "reddit.sublime-project",
+				// "server.php",
+				// "template.sublime-project",
+				// "todo.yaml"
 			]
 		},
 		{

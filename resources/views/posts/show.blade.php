@@ -27,7 +27,7 @@
 					<a href="{{ action('PostsController@edit', ['id' => $post->id]) }}" class="btn btn-info">
 						Edit
 					</a>
-					<a href="{{ action('PostsController@delete') }}" class="btn btn-danger">
+					<a href="{{ action('PostsController@delete', ['id' => $post->id]) }}" class="btn btn-danger">
 						Delete
 					</a>
 				@endif
