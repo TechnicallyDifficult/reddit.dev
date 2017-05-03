@@ -12,32 +12,12 @@
 						{!! $message['message'] !!}
 					</info>
 				@endforeach
-				{{-- @if ($request->session()->has('message'))
-					<info class="message alert alert-info">
-						{!! session('message') !!}
-					</info>
-				@endif
-				@if ($request->session()->has('successMessage'))
-					<info class="message alert alert-success">
-						{!! session('successMessage') !!}
-					</info>
-				@endif
-				@if ($request->session()->has('warningMessage'))
-					<info class="message alert alert-warning">
-						{!! $request->session('warningMessage') !!}
-					</info>
-				@endif
-				@if ($request->session()->has('dangerMessage'))
-					<info class="message alert alert-danger">
-						{!! $request->session('dangerMessage') !!}
-					</info>
-				@endif --}}
 			@endif
 			@yield('content')
 		</main>
 
 		@hasSection('sidebar')
-			<aside id="sidebar">
+			<aside id="main-sidebar">
 				@yield('sidebar')
 			</aside>
 		@endif
