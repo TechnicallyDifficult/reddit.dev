@@ -34,9 +34,6 @@ class PostsController extends BaseController
 	{
 		// view "new post" page (only if logged in)
 
-		$action = action('PostsController@store');
-		$method = 'POST';
-
 		return view('posts.create', $this->getLocalVars(get_defined_vars()));
 	}
 
@@ -98,8 +95,6 @@ HTML
 	{
 		// view "edit post" page (only if logged in as admin or user who created initially)
 
-		$action = action('PostsController@update', $id);
-		$method = 'PUT';
 		$post = Post::findOrFail($id);
 
 		return view('posts.edit', $this->getLocalVars(get_defined_vars()));
