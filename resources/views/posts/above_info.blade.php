@@ -10,6 +10,6 @@ posted
 * by
 <address>
 	<a href="{{-- {{ POST_AUTHOR_PAGE }} --}}" id="post-author">
-		{{ isset($username) ? $username : $post->getRandomPlaceholder() }}#{{ $post->created_by }}
+		{{ isset($username) ? $username : App\Helpers\Placeholder::username() }}#{{ $post->created_by }}
 	</a>
 </address>

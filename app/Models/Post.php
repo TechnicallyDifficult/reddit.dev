@@ -36,11 +36,4 @@ class Post extends Model
 	{
 		return preg_replace(['~^1 day ago~', '~^1\b~'], ['yesterday', 'a'], $this[$date]->diffForHumans());
 	}
-
-	public function getRandomPlaceholder()
-	{
-		$placeholders = ['Guy', 'Girl', 'Fungus', 'Algae', 'Bacterium', 'Protozoa', 'Person', 'Dragon', 'Woof', 'Mew', 'Fuzz', 'Potato', 'Filename', 'Person', 'Random', '[deleted]', 'Meme', 'Insect', 'Placeholder', 'Table', 'Object', 'Floof', 'Username', 'NULL', 'NPC', 'String', 'Function', 'Boop', 'Error: Placeholder not silly enough'];
-
-		return 'someRandom' . $placeholders[array_rand($placeholders)];
-	}
 }
