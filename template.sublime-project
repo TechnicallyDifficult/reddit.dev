@@ -39,6 +39,7 @@
 					"resources/lang",
 						"resources/lang/en",
 					"resources/views",
+						"resources/views/auth",
 						"resources/views/errors",
 						"resources/views/layouts",
 						"resources/views/partials",
