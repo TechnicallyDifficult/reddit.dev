@@ -15,16 +15,23 @@
     outline: none;
 }
 
-/*TODO: Make labels act like they do on login page*/
+.form-error {
+    display: block;
+}
 
 label {
-    /*position: absolute;*/
-    font-weight: normal;
-    /*font-size: 14px;
+    font-weight: inherit;
+}
+
+/*TODO: Make labels act like they do on my previous login page*/
+
+/*label {
+    position: absolute;
+    font-size: 14px;
     color: #999;
     top: 32px;
     left: 13px;
     transition-duration: 200ms;
     user-select: none;
-    pointer-events: none;*/
-}
+    pointer-events: none;
+}*/
