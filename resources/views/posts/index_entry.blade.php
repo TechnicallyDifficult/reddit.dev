@@ -22,7 +22,7 @@
 				<button type="button" class="vote-button downvote"></button>
 			</div>
 		</aside>
-		<submain class="col-lg-10">
+		<div class="col-lg-10">
 			<header class="row">
 				{{-- ICON --}}
 				<div>
@@ -50,9 +50,9 @@
 					</a>
 				</div>
 			</footer>
-		</submain>
-		<submain class="hidden post-body">
+		</div>
+		<div class="hidden post-body">
 			{{ $post->content }}
-		</submain>
+		</div>
 	</article>
 </li>

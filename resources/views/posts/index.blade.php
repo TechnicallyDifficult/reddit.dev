@@ -11,7 +11,7 @@
 		<header>
 			<h1>All Posts</h1>
 		</header>
-		<submain>
+		<div>
 			@if (isset($stickies))
 				<ol>
 					@foreach ($stickies as $post)
@@ -24,7 +24,7 @@
 					@include('posts.index_entry')
 				@endforeach
 			</ol>
-		</submain>
+		</div>
 		{{ $posts->links() }}
 	</article>
 @stop

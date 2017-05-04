@@ -4,13 +4,13 @@
 	@include('partials.common_head')
 </head>
 <body>
-	<page class="container-fluid">
+	<div class="container-fluid">
 		<main class="col-sm-8 col-md-9">
 			@if (isset($request) and $request->session()->has('messages'))
 				@foreach (session('messages') as $message)
-					<alert class="message alert alert-{{ $message['type'] }}">
+					<figure role="alert" class="main-message alert alert-{{ $message['type'] }}">
 						{!! $message['message'] !!}
-					</alert>
+					</figure>
 				@endforeach
 			@endif
 			@yield('content')
@@ -21,7 +21,7 @@
 				@yield('sidebar')
 			</aside>
 		@endif
-	</page>
+	</div>
 
 	@include('partials.scripts.common')
 	@yield('script')

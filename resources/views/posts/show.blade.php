@@ -20,27 +20,27 @@
 			@include('posts.above_info')
 		</footer>
 
-		<submain class="post-body">
+		<div class="post-body">
 			{{ $post->content }}
 			<div>
-				@if (false/* USER_IS_POST_AUTHOR_OR_ADMIN */)
-					<a href="{{ action('PostsController@edit', ['id' => $post->id]) }}" class="btn btn-info">
+				@if (Auth::user() === $post->created_by or Auth::user() === 'ADMIN')
+					<a href="{{ action('PostsController@edit', ['id' => $post->id]) }}" class="btn btn-info post-edit-button">
 						Edit
 					</a>
-					<a href="{{ action('PostsController@delete', ['id' => $post->id]) }}" class="btn btn-danger">
+					<a href="{{ action('PostsController@delete', ['id' => $post->id]) }}" class="btn btn-danger post-delete-button">
 						Delete
 					</a>
 				@endif
 			</div>
-		</submain>
+		</div>
 
 		<aside id="comments">
 			<header>
 				<h1>{{-- {{ NUMBER_OF_COMMENTS }} --}} Comments</h1>
 			</header>
-			<submain>
+			<div>
 				@yield('comments')
-			</submain>
+			</div>
 		</aside>
 
 	</article>
