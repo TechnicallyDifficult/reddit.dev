@@ -17,20 +17,36 @@ if (isset($_SERVER['REQUEST_URI']) and substr($_SERVER['REQUEST_URI'], -1) !== '
 	die;
 }
 
-Route::get('/', 'Main@root');
+Route::get('/', 'MainController@root');
 
-Route::get('/helloworld/', 'Main@helloworld');
+Route::get('/helloworld/', 'MainController@helloworld');
 
-Route::get('/uppercase/{word?}/', 'Main@uppercase');
+Route::get('/uppercase/{word?}/', 'MainController@uppercase');
+Route::get('/lowercase/{word?}/', 'MainController@lowercase');
 
-Route::get('/lowercase/{word?}/', 'Main@lowercase');
+Route::get('/add/{x?}/{y?}/', 'MainController@add');
 
-Route::get('/add/{x?}/{y?}/', 'Main@add');
+Route::get('/rolldice/{guess?}/', 'MainController@rolldice');
 
-Route::get('/rolldice/{guess?}/', 'Main@rolldice');
-
-Route::get('/increment/{number?}/', 'Main@increment');
+Route::get('/increment/{number?}/', 'MainController@increment');
 
 Route::resource('posts', 'PostsController', ['parameters' => ['posts' => 'id']]);
 
-Route::get('/{error}/', 'Main@error')->where('error', '^\d+$');
+// login/logout
+Route::get('/login/', 'Auth\AuthController@showLoginForm');
+Route::post('/login/', 'Auth\AuthController@login');
+Route::post('/logout/', 'Auth\AuthController@logout');
+
+// registration routes
+Route::get('/signup/', 'Auth\RegisterController@showRegistrationForm');
+Route::post('/signup/', 'Auth\RegisterController@register');
+
+// password reset routes...
+Route::get('password/reset/', 'Auth\ForgotPasswordController@showLinkRequestForm');
+Route::post('password/email/', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+Route::get('password/reset/{token}/', 'Auth\ResetPasswordController@showResetForm');
+Route::post('password/reset/', 'Auth\ResetPasswordController@reset');
+
+Route::get('/{error}/', 'MainController@error')->where('error', '^\d+$');
+
+Route::get('/home/', 'HomeController@index');

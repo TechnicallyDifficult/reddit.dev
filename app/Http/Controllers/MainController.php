@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-class Main extends BaseController {
+class MainController extends BaseController {
 	
 	public function root()
 	{
